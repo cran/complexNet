@@ -1,0 +1,40 @@
+---
+title: "Introduction to complexNet"
+description: "A brief introduction to complex networks in R"
+author: "Marco Smolla"
+opengraph:
+  twitter:
+    card: summary
+    creator: "@smollamarco"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{complexNet-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+options(rmarkdown.html_vignette.check_title = FALSE)
+```
+
+```{r setup}
+library(complexNet)
+```
+
+```{r}
+# All parameters provided, but random offspring and parent
+adjm <- make_bnr(n = 100, np = c(0,0), pb = 1, pn = .2, pr = .01)
+
+# All parameters provided, offspring (here 2) and parent (here 5) id provided as well
+adjm <- make_bnr(n = 100, np = c(2,5), pb = 1, pn = .2, pr = .01)
+
+# pb ommitted, replaced by default value
+adjm <- make_bnr(n = 100, np = c(0,0), pn = .2, pr = .01)
+
+# Two parent example, with random offspring and parents
+adjm <- make_bnr(n = 100, np = c(0,0,0), pb = 1, pn = .2, pr = .01)
+```
